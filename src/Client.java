@@ -34,10 +34,10 @@ public class Client implements Runnable{
             in = new Scanner(is);
             out = new PrintStream(os);
             out.println("Welcome to chat!");
-            String input = this.name + ": " + in.nextLine();
+            String input = in.nextLine();
             while (!input.equals("stop")) {
-                server.sendAll(input);
-                input = this.name + ": " + in.nextLine();
+                server.sendAll( this.name + ": " + input);
+                input = in.nextLine();
             }
             socket.close();
         } catch (IOException e) {
